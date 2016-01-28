@@ -1,0 +1,21 @@
+<!-- 选美活动 -->
+	<section class="beauty">
+		<!-- 标题 -->
+		<div class="title fixed">
+		    <h3 class="title__content"><%= title %></h3>
+		    <a href="#" class="title__more title__more--beauty">更多</a>
+		</div>
+ 	    <ul class="beauty__list fixed">
+ 	    	<% for(var i=0; i<imgList.length; i++) {%>
+ 	    	<li class="beauty__item">
+ 	    		<a href="#" class="beauty__item--link">
+ 	    			<img class="beauty__item--bg" src="images/<%= imgList[i].path%>" alt="">
+ 	    			<div class="beauty__item--desc">
+ 	    				<p>昵称：<%=imgList[i].nickname%></p>
+ 	    				<p>区服：<%=imgList[i].district%></p>
+ 	    			</div>
+ 	    		</a>
+ 	    	</li>
+ 	    	<% } %>
+ 	   	</ul>
+	</section>

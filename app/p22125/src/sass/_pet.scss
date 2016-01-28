@@ -1,0 +1,53 @@
+@function spriteUrl($url){
+	@return unquote("#{'url(../' + str-slice(#{$url},16, -3) + ')'}");
+}
+
+$pet__logo: sprite-map("pet__logo/*.png");
+
+.pet{
+	&__wp{
+		width: 100%;
+		padding: 0 5%;
+		box-sizing: border-box;
+	}
+	&__list{
+		&--wp{
+			margin: 1rem 0;
+		}
+		&--title{
+			background: url("../images/bb__title__bg.png") center center no-repeat;
+			background-size: 100% 100%;
+			width: 90%;
+			margin: auto;
+			line-height: 3rem;
+			text-align: center;
+			font-size: 1.8rem;
+			color: #a28925;
+			margin-bottom: 1rem;
+		}
+
+		width: 100%;
+	}
+	&__item{
+		float: left;
+		margin: 0.5rem 0;
+		width: 33.3%;
+		&--link{
+			text-align: center;
+			text-decoration: none;
+			display: block;
+		}
+		&--desc{
+			line-height: 2rem;
+			font-size: 1.3rem;
+			color: #a28925;
+			text-align: center;
+		}
+	}
+	&__logo{
+		margin: 0 auto;
+		display: block;
+		width: 70%;
+		vertical-align: middle;
+	}
+}

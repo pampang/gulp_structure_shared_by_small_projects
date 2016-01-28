@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- head -->
+	<meta http-equiv="Content-Type" content=
+	"text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content=
+	"black">
+	<meta name="format-detection" content="telphone=no, email=no">
+	<title>
+	  宝宝详情
+	</title>
+	<link type="text/css" rel="stylesheet" href="css/basic.css">
+	<!-- 需求号: 22125 | 设计: chenyue | 重构: pangweizhan | 创建时间: 2015/01/18 -->
+    <link rel="stylesheet" type="text/css" href="./css/petDetail.css">
+</head>
+<body>
+	<!-- 下载游戏横栏 -->
+	<header class="banner">
+		<div class="banner__wp">
+			<div class="banner__left">
+				<a href="#" class="banner__logo">仙语</a>
+				<ul class="banner__info">
+					<li class="banner__infoTitle"><h1>仙语</h1></li>
+					<li class="banner__infoDetail">2016新式3D回合制网游</li>
+				</ul>
+			</div>
+			<div class="banner__right">
+				<a href="#" class="banner__download">立即下载</a>
+				<a href="#" class="banner__home">引导</a>
+			</div>
+		</div>
+
+		<div class="nav">
+			<ul class="nav__btnList">
+				<!-- 首页 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--home"></em>
+				</li>
+				<!-- 资料站 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--info"></em>
+				</li>
+				<!-- 预约 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--appointment"></em>
+				</li>
+				<!-- 攻略区 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--strategy"></em>
+				</li>
+				<!-- 选美活动 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--beauty"></em>
+				</li>
+				<!-- 宝宝站 -->
+				<li class="nav__btn">
+					<em class="nav__logo nav__logo--pet"></em>
+				</li>
+			</ul>
+			<div class="nav__exit">
+				<img src="./images/exit.png" alt="exit">
+			</div>
+		</div>
+	</header>
+
+	<section class="petDetail">
+		<!-- 标题 -->
+	<div class="title fixed">
+		
+	    	<a href="#" class="title__back">返回</a>
+	    
+	    <h3 class="title__content">宝宝详情</h3>
+
+	    
+	</div>
+
+		<div class="petDetail__show fixed">
+			<div class="petDetail__logo">
+				<img src="./images/lmqq.png" alt="龙猫球球">
+			</div>
+			<ul class="petDetail__desc fixed">
+				<li class="petDetail__desc--title">龙猫球球</li>
+				<li class="petDetail__desc--level">
+					携带等级<i class="level">35级</i>
+				</li>
+				<li class="petDetail__desc--from fixed">
+					<i class="desc">出处</i>
+					<i class="from">瑶池北（稀有）</i>
+				</li>
+			</ul>
+			<div class="petDetail__pet fixed">
+				<img src="./images/petDetail__pet.png" alt="龙猫球球">
+			</div>
+			<ul class="petDetail__btnList">
+				<li class="petDetail__btn">
+					<a href="#">
+						<img src="./images/prev.png" alt="">
+						<i>上一个</i>
+					</a>
+				</li>
+				<li class="petDetail__btn">
+					<a href="#">
+						<i>下一个</i>
+						<img src="./images/next.png" alt="">
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="petDetail__info">
+			<div class="petDetail__title fixed">
+				<img src="./images/petDetail__info.png" alt="">
+				<h3>宠物资料</h3>
+			</div>
+			<table class="petDetail__aptitude petDetail__aptitude--3">
+				<tr>
+					<th>攻击资质</th>
+					<th>防御资质</th>
+					<th>体力资质</th>
+				</tr>
+				<tr>
+					<td>5850</td>
+					<td>1680</td>
+					<td>1920</td>
+				</tr>
+			</table>
+			<table class="petDetail__aptitude petDetail__aptitude--2">
+				<tr>
+					<th>法力资质</th>
+					<th>速度资质</th>
+				</tr>
+				<tr>
+					<td>5850</td>
+					<td>1680</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="petDetail__skill">
+			<div class="petDetail__title fixed">
+				<img src="./images/petDetail__skill--must.png" alt="">
+				<h3>宠物必备技能</h3>
+			</div>
+			<table class="petDetail__skillList fixed">
+				<tr>
+					<td class="petDetail__skillItem petDetail__skillItem--img">
+						<img src="./images/petDetail__skill--shuigong.png" alt="水攻">
+					</td>
+					<td class="petDetail__skillItem petDetail__skillItem--content">
+						水攻：水系单体法术，同时有10%概率降低对方物理和法术攻击力3%，持续3回合
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="petDetail__skill">
+			<div class="petDetail__title fixed">
+				<img src="./images/petDetail__skill--random.png" alt="">
+				<h3>宠物随机技能</h3>
+			</div>
+			<table class="petDetail__skillList fixed">
+				<tr>
+					<td class="petDetail__skillItem petDetail__skillItem--img">
+						<img src="./images/petDetail__skill--shuigong.png" alt="水攻">
+					</td>
+					<td class="petDetail__skillItem petDetail__skillItem--content">
+						水攻：水系单体法术，同时有10%概率降低对方物理和法术攻击力3%，持续3回合
+					</td>
+				</tr>
+				<tr>
+					<td class="petDetail__skillItem petDetail__skillItem--img">
+						<img src="./images/petDetail__skill--shuigong.png" alt="水攻">
+					</td>
+					<td class="petDetail__skillItem petDetail__skillItem--content">
+						水攻：水系单体法术，同时有10%概率降低对方物理和法术攻击力3%，持续3回合
+					</td>
+				</tr>
+				<tr>
+					<td class="petDetail__skillItem petDetail__skillItem--img">
+						<img src="./images/petDetail__skill--shuigong.png" alt="水攻">
+					</td>
+					<td class="petDetail__skillItem petDetail__skillItem--content">
+						水攻：水系单体法术，同时有10%概率降低对方物理和法术攻击力3%，持续3回合
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</section>
+
+	    <!-- 版权 -->
+    <footer class="footer">
+        <div class="footer__title">
+            <hr />
+            <h3>关注《仙语》</h3>
+            <hr />
+        </div>
+        <ul class="footer__contact fixed">
+            <li class="footer__contact--item">
+                <a href="#">
+                    <em class="footer__contact--logo footer__contact--luntan"></em>
+                    <p class="footer__contact--desc">
+                        论坛
+                    </p>
+                </a>
+            </li>
+            <li class="footer__contact--item">
+                <a href="#">
+                    <em class="footer__contact--logo footer__contact--tieba"></em>
+                    <p class="footer__contact--desc">
+                        贴吧
+                    </p>
+                </a>
+            </li>
+            <li class="footer__contact--item">
+                <a href="#">
+                    <em class="footer__contact--logo footer__contact--weixin"></em>
+                    <p class="footer__contact--desc">
+                        微信
+                    </p>
+                </a>
+            </li>
+            <li class="footer__contact--item">
+                <a href="#">
+                    <em class="footer__contact--logo footer__contact--kefu"></em>
+                    <p class="footer__contact--desc">
+                        客服
+                    </p>
+                </a>
+            </li>
+        </ul>
+        <div class="footer__btn">
+            <a class="footer__btn--pc" href="#">进入PC端</a>
+            <a class="footer__btn--top" href="#top">返回顶部</a>
+        </div>
+    </footer>
+
+	<script src="./lib/js/zepto.1.1.4.min.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+
+</html>

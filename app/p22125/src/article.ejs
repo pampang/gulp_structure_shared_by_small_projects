@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('./ejs/_head', head)%>
+    <link rel="stylesheet" type="text/css" href="./css/article.css">
+</head>
+<body>
+	<%- include('./ejs/_banner', banner) %>
+
+	<!-- 文章内容 -->
+	<article class="article">
+		<div class="article__header">
+			<h3 class="article__title">新手攻略指南呵呵呵呵呵呵</h3>
+			<p class="article__time">发布时间：2016-01-18</p>
+		</div>
+		<div class="article__content">
+			<p>
+			    很多玩家可能会发现，同样是三个人组队，但是每场战斗结束之后，三个人所获得的积分并不相同，所以有时候甚至会出现同一个队伍的玩家有人拿到了称谓，有人却拿不到称谓。造成这样差别的原因就在于评分高低，如果你的个人评分高，那么你所获得的积分也会略多于其他队友。虽然每场可能就会相差一分左右，但累积下来也非常可观。
+			</p>
+
+			<p>影响你获得决战华山称谓的有哪些因素</p>
+			<p>与时间竞赛</p>
+			<p>
+				　　最后，决定你能否拿到称谓还有一个要素，那就是“时间”。你十场打完以后使用的时间越少，你所获得的积分也就会越高。所以如果你的队伍攻击力不高，战程比较拖拉，那么就算是拿到了十胜而且个人评分不低，你也很难拿到称谓。所以为了夺得称谓，有时候你要采用一些风险不低但是效率很高的高暴力阵容。
+			</p>
+		</div>
+	</article>
+
+	<%- include('./ejs/_footer')%>
+
+	<script src="./lib/js/zepto.1.1.4.min.js"></script>
+	<script src="./js/main.js"></script>
+
+</body>
+
+</html>

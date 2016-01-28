@@ -1,0 +1,60 @@
+.news{
+	background: #fff;
+	&__list{
+		width: 100%;
+	}
+	&__item{
+		background: #ebf3f6;
+		&:nth-of-type(even){
+			background: #fff;
+		}
+		display: block;
+		box-sizing: border-box;
+		padding: 0 5%;
+		height: 4rem;
+		line-height: 4rem;
+
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		position: relative;
+	}
+	&__itemLink{
+		text-decoration: none;
+		display: block;
+	}
+	&__itemContent{
+		font-size: 1.3rem;
+		color: #6c6c6c;
+	}
+	&__itemDate{
+		font-size: 1.3rem;
+		color: #6c6c6c;
+		float: right;
+	}
+	&__more{
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0 5%;
+	}
+	&__moreItem{
+		width: 33.33%;
+		float: left;
+		text-align: center;
+		&--content{
+			display: block;
+			margin: 1rem auto;
+			width: 6.5rem;
+			height: 6.5rem;
+			line-height: 5.5rem;
+			box-sizing: border-box;
+			border: 0.5rem solid #0d86df;
+			background: #dcfeff;
+			font-size: 1.3rem;
+			font-weight: bold;
+			color: #37a0e2;
+			border-radius: 100%;
+			box-shadow: 3px 3px 5px #195184;
+		}
+	}
+}

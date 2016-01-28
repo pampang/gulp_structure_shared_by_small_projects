@@ -1,0 +1,140 @@
+{
+	"head": {
+		"title": "宝宝站-仙语"
+	},
+	"banner": {
+		"title": "仙语",
+		"desc": "2016新式3D回合制网游"
+	},
+	"pet": {
+		"title": {
+			"title": "宝宝站",
+			"back": true
+		},
+		"more": false,
+		"petList": [
+			{
+				"title": "0-35携带",
+				"name": [
+					{
+						"short": "gcx",
+						"full": "龟丞相"
+					},
+					{
+						"short": "mm",
+						"full": "马面"
+					},
+					{
+						"short": "nt",
+						"full": "牛头"
+					},
+					{
+						"short": "mn", 
+						"full": "猫女"
+					},
+					{
+						"short": "mmy",
+						"full": "咩咩羊"
+					},
+					{
+						"short": "lmqq",
+						"full": "龙猫球球"
+					},
+					{
+						"short": "yz", 
+						"full": "野猪"
+					},
+					{
+						"short": "hz",
+						"full": "猴子"
+					},{
+						"short": "pd",
+						"full": "胖丁"
+					}
+				]
+			},
+			{
+				"title": "45-65携带",
+				"name": [
+					{
+						"short": "xxg",
+						"full": "吸血鬼"
+					},
+					{
+						"short": "sz",
+						"full": "山贼"
+					},
+					{
+						"short": "qd1",
+						"full": "强盗"
+					},
+					{
+						"short": "hl",
+						"full": "狐狸"
+					},
+					{
+						"short": "hx",
+						"full": "黑熊"
+					},
+					{
+						"short": "cl",
+						"full": "苍狼"
+					},
+					{
+						"short": "hd",
+						"full": "蝴蝶"
+					},
+					{
+						"short": "yh",
+						"full": "幽魂"
+					},
+					{
+						"short": "ln",
+						"full": "龙女"
+					}
+				]
+			},
+			{
+				"title": "75-95携带",
+				"name": [
+					{
+						"short": "byss",
+						"full": "白衣书生"
+					},
+					{
+						"short": "tj",
+						"full": "天将"
+					},
+					{
+						"short": "dm",
+						"full": "电母"
+					},
+					{
+						"short": "gj",
+						"full": "鬼将"
+					},
+					{
+						"short": "cyh",
+						"full": "出云虎"
+					},
+					{
+						"short": "jls",
+						"full": "巨灵神"
+					},
+					{
+						"short": "sxs",
+						"full": "孙小圣"
+					},
+					{
+						"short": "dxm",
+						"full": "大熊猫"
+					},
+					{
+						"short": "zk",
+						"full": "钟馗"
+					}
+				]
+			}
+		]
+	}
+}

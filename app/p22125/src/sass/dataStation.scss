@@ -1,0 +1,59 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/utilities";
+
+@import "./_title.scss";
+
+@import "./_banner.scss";
+
+@import "./_footer.scss";
+
+.dataStation{
+	width: 90%;
+	margin: 1rem 5%;
+	&__title{
+		background: url("../images/dataStation__titleLine.png") 0 bottom no-repeat;
+		background-size: 100%;
+		font-size: 2rem;
+		font-weight: bold;
+		color: #1779c4;
+		padding: 0.5rem 0;
+	}
+
+	&__listName{
+		&:before{
+			content: "";
+			width: 1rem;
+			height: 1rem;
+			display: inline-block;
+			margin-right: 0.5rem;
+			background: url("../images/dataStation__titleHead.png") center center no-repeat;
+			background-size: 100%;
+		}
+		background: #1779c4 url("../images/dataStation__titleBg.png") center center no-repeat;
+		line-height: 2.5rem;
+		font-size: 1.4rem;
+		color: #fefefe;
+		display: inline-block;
+		margin-top: 1rem;
+		border-radius: 30px;
+		padding-left: 1rem;
+		padding-right: 1.5rem;
+	}
+	&__list{
+	    list-style-type: disc;
+    	list-style-position: inside;
+    	width: 100%;
+	}
+	&__item{
+		float: left;
+		width: 33.33%;
+		line-height: 2.5rem;
+		text-align: center;
+		a{
+			text-decoration: none;
+			color: #666666;
+			font-size: 1.4rem;
+		}
+	}
+}

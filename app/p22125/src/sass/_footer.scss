@@ -1,0 +1,104 @@
+@function spriteUrl($url){
+	@return unquote("#{'url(../' + str-slice(#{$url},16, -3) + ')'}");
+}
+
+$contact__btn: sprite-map("contact__btn/*.png");
+
+.footer{
+	background: #424a55;
+	width: 100%;
+	padding: 0 5%;
+	box-sizing: border-box;
+	&__title{
+		color: #868e99;
+		text-align: center;
+		padding: 2rem 0 1rem;
+		h3{
+			text-align: center;
+			width: 45%;
+			box-sizing: border-box;
+			display: inline-block;
+			font-size: 1.6rem;
+			font-weight: bold;
+			position: relative;
+			z-index: 3;
+			padding: 0.5rem 1rem;
+		}
+		hr{
+			display: inline-block;
+			width: 25%;
+			border-color: #868e99;
+		}
+	}
+	&__contact{
+		width: 100%;
+		&--item{
+			width: 25%;
+			float: left;
+			text-align: center;
+		}
+		&--logo{
+			display: inline-block;
+			background-image: spriteUrl($contact__btn);
+			background-size: sprite-width($contact__btn) / 2;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+		}
+		&--luntan{
+			$icon: 'luntan';
+			background-position: (nth(sprite-position($contact__btn, $icon), 1) / 2) (nth(sprite-position($contact__btn, $icon), 2) / 2);
+			width: sprite-width($contact__btn, $icon) / 2;
+			height: sprite-height($contact__btn, $icon) / 2;
+		}
+		&--tieba{
+			$icon: 'tieba';
+			background-position: (nth(sprite-position($contact__btn, $icon), 1) / 2) (nth(sprite-position($contact__btn, $icon), 2) / 2);
+			width: sprite-width($contact__btn, $icon) / 2;
+			height: sprite-height($contact__btn, $icon) / 2;
+		}
+		&--weixin{
+			$icon: 'weixin';
+			background-position: (nth(sprite-position($contact__btn, $icon), 1) / 2) (nth(sprite-position($contact__btn, $icon), 2) / 2);
+			width: sprite-width($contact__btn, $icon) / 2;
+			height: sprite-height($contact__btn, $icon) / 2;
+		}
+		&--kefu{
+			$icon: 'kefu';
+			background-position: (nth(sprite-position($contact__btn, $icon), 1) / 2) (nth(sprite-position($contact__btn, $icon), 2) / 2);
+			width: sprite-width($contact__btn, $icon) / 2;
+			height: sprite-height($contact__btn, $icon) / 2;
+		}
+		&--desc{
+			display: inline-block;
+			color: #fdfdfb;
+			font-size: 1.2rem;
+			vertical-align: middle;
+		}
+	}
+	&__btn{
+		margin-top: 2rem;
+		padding-bottom: 2rem;
+		text-align: center;
+		position: relative;
+		&--pc{
+			font-size: 1.3rem;
+			position: absolute;
+			line-height: 3.5rem;
+			left: 0;
+			margin-left: 1rem;
+			color: #83c5ff;
+			text-decoration: underline;
+		}
+		&--top{
+			display: inline-block;
+			text-decoration: none;
+			font-size: 1.2rem;
+			text-align: center;
+			width: 40%;
+			line-height: 3.5rem;
+			color: #fdfdfb;
+			background: #5b80b4;
+			border-radius: 5px;
+		}
+	}
+}

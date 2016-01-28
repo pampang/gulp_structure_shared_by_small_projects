@@ -1,0 +1,78 @@
+.welfare{
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);	
+	&__wp{
+		width: 90%;
+		margin: 1rem 5%;
+		background: #ffffff;
+		border: 1px solid #55c5f4;
+		border-radius: 10px;
+		position: relative;
+		overflow: scroll;
+	}
+	&__title{
+		width: 100%;
+		font-size: 0;
+		img{
+			width: 100%;
+		}
+	}
+	&__exit{
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.5rem 0;
+		text-align: center;
+		z-index: 3;
+		img{
+			width: 50%;
+		}
+	}
+}
+
+.present{
+	border: 1px solid #55c5f4;
+	border-radius: 5px;
+	background: #edf9ff;
+	width: 90%;
+	margin: auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	&__title{
+		width: 16.25rem;
+		line-height: 2.5rem;
+		padding-top: 1rem;
+		margin: auto;
+		margin-top: -1.5rem;
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: #228ddc;
+		background: url("../images/welfare__titleBg.png") 0 0 no-repeat;
+		background-size: 100% 100%;
+		text-align: center;
+	}
+	&__list{
+		width: 96%;
+		margin: 0.5rem auto;
+	}
+	&__item{
+		width: 25%;
+		float: left;
+		text-align: center;
+		img{
+			width: 90%;
+		}
+	}
+	&__code{
+		color: #fe8300;
+		line-height: 2rem;
+		font-weight: 1.1rem;
+		text-align: center;
+	}
+}

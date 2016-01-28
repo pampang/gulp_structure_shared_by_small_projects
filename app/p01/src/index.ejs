@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('../../../util_ejs/head', head)%>
+    <link rel="stylesheet" type="text/css" href="./lib/css/swiper-3.2.7.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+
+	<% if(locals.title !== undefined){ %>
+		<%- include('./ejs/_title', title) %>
+	<% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!-- 热门活动 -->
+	<section class="activity">
+	    <% if(locals.activity.title !== undefined){ %>
+        <%- include('_title',title) %>
+        <% } %>
+        <div class="activity__swiper" id="<%= id %>-swiper">
+            <div class="swiper-wrapper">
+                <% for(var i=0; i<imgList.length; i++) {%>
+                   <div class="swiper-slide">
+                    <a href="#">
+                        <img src="images/<%= imgList[i].path %>" alt="" />
+                    </a>
+                </div>
+                <% } %>
+            </div>
+            <div class="activity__pagination--wp">
+            	<div class="activity__pagination" id="activity-swiper-pagination">
+            </div>
+	    </div>
+	</section>

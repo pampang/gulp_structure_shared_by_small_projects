@@ -1,0 +1,70 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/utilities";
+
+@import "./_title.scss";
+
+@import "./_banner.scss";
+
+@import "./_footer.scss";
+
+.picView{
+	&__title{
+		font-size: 2rem;
+		text-align: center;
+		padding: 1.5rem 0 3rem 0;
+	}
+	&__pic{
+		width: 100%;
+		margin: auto;
+		img{
+			width: 100%;
+			margin: auto;
+		}
+	}
+	&__time{
+		width: 100%;
+		height: 2rem;
+		margin-top: 1rem;
+		font-size: 1rem;
+		background: url("../images/picView__timeBg.png") 0 0 no-repeat;
+		background-size: 100%;
+		text-align: center;
+		vertical-align: middle;
+	}
+	&__pagination{
+		margin: auto;
+		padding-top: 0.5rem;
+		padding-bottom: 2rem;
+		text-align: center;
+	}
+	&__btn{
+		text-decoration: none;
+		display: inline-block;
+		color: #2d6ea6;
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding: 0 0.5rem;
+		vertical-align: middle;
+		i{
+			vertical-align: middle;
+			line-height: 2.5rem;
+		}
+		img{
+			width: 0.8rem;
+			vertical-align: middle;
+			line-height: 2.5rem;
+		}
+	}
+	&__page{
+		display: inline-block;
+		font-size: 1.2rem;
+		color: #4f4f4f;
+		vertical-align: middle;
+		line-height: 2.5rem;
+		border: 1px solid #656565;
+		padding: 0 1.2rem;
+		box-sizing: border-box;
+		border-radius: 5px;
+	}
+}

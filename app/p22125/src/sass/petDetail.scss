@@ -1,0 +1,186 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/utilities";
+
+@import "./_title.scss";
+
+@import "./_banner.scss";
+
+@import "./_footer.scss";
+
+.petDetail{
+		background: url("../images/petDetail__bg.png") 0 0 no-repeat;
+		background-size: 100%;
+	&__show{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 3rem 5% 0 5%;
+		position: relative;
+	}
+	&__logo{
+		width: 8rem;
+		float: left;
+		img{
+			width: 100%;
+		}
+	}
+	&__desc{
+		float: left;
+		margin-left: 1.5rem;
+		&--title{
+			font-size: 3.5rem;
+			font-weight: bold;
+			color: #19a695;
+			padding-bottom: 0.5rem;
+		}
+		&--level{
+			font-size: 1.4rem;
+			color: #3d3522;
+			font-weight: bold;
+			line-height: 3rem;
+			.level{
+				color: #ff3710;
+				font-size: 1.6rem;
+				font-weight: bold;
+				padding-left: 0.5rem;
+			}
+		}
+		&--from{
+			border: 1px solid #19a695;
+			border-radius: 3px;
+			line-height: 2rem;
+			text-align: center;
+			.desc{
+				width: 25%;
+				box-sizing: border-box;
+				display: block;
+				float: left;
+				background: #19a695;
+				color: #fff;
+				padding: 0 0.5rem;
+			}
+			.from{
+				width: 75%;
+				box-sizing: border-box;
+				display: block;
+				float: left;
+				color: #19a695;
+				padding: 0 1rem;
+			}
+		}
+	}
+	&__pet{
+		margin: 0 auto;
+		width: 80%;
+		img{
+			padding-top: 2rem;
+			width: 100%;
+		}
+	}
+	&__btnList{
+		margin: auto;
+		padding-top: 0.5rem;
+		padding-bottom: 2rem;
+		text-align: center;
+	}
+	&__btn{
+		display: inline-block;
+		border: 1px solid #19a695;
+		border-radius: 2px;
+		margin: 0 1rem;
+		a{
+			text-decoration: none;
+			display: block;
+			color: #19a695;
+			font-size: 1.5rem;
+			font-weight: bold;
+			padding: 0 0.5rem;
+			vertical-align: middle;
+		}
+		i{
+			vertical-align: middle;
+			line-height: 2.5rem;
+		}
+		img{
+			width: 0.8rem;
+			vertical-align: middle;
+			line-height: 2.5rem;
+		}
+	}
+
+	&__info{
+		width: 100%;
+		padding: 0 5%;
+		box-sizing: border-box;
+	}
+	&__title{
+		padding: 1rem 0 0.5rem 0;
+		line-height: 2rem;
+		img{
+			float: left;
+			width: 2rem;
+			vertical-align: middle;
+		}
+		h3{
+			float: left;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #555555;
+			vertical-align: middle;
+		}
+	}
+	&__aptitude{
+		width: 100%;
+		text-align: center;
+		margin: 1rem auto;
+		th, td{
+			padding: 0.5rem 0;
+			text-align: center;
+			border: 1px solid #cdb7ac;
+			font-size: 1.4rem;
+		}
+		th{
+			background: #19a695 url("../images/petDetail__mask.png") 0 0 repeat;
+			color: #fff;
+		}
+		td{
+			color: #3e3e3e;
+		}
+		&--3{
+			width: 100%;
+		}
+		&--2{
+			width: 66.66%;
+		}
+		&--1{
+			width: 33.33%;
+		}
+	}
+
+	&__skill{
+		width: 100%;
+		padding: 0 5%;
+		box-sizing: border-box;
+	}
+	&__skillList{
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+	&__skillItem{
+		box-sizing: border-box;
+		padding: 1.5rem 0.5rem;
+		border: 1px solid #cdb7ac;
+		&--img{
+			width: 30%;
+			background: #19a695 url("../images/petDetail__mask.png") 0 0 repeat;
+			color: #fff;
+			text-align: center;
+			img{
+				width: 60%;
+			}
+		}
+		&--content{
+			width: 70%;
+		}
+	}
+}

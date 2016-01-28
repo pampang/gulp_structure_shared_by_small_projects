@@ -1,0 +1,179 @@
+$background-color: #1583e4;
+
+@function spriteUrl($url){
+	@return unquote("#{'url(../' + str-slice(#{$url},16, -3) + ')'}");
+}
+
+$nav__btn: sprite-map("nav__btn/*.png");
+
+
+.banner{
+	position: relative;
+	height: 5rem;
+	z-index: 99;
+	&__wp{
+		width: 100%;
+		position: fixed;
+		height: 3rem;
+		padding: 1rem 0.5rem;
+		background: $background-color;
+		z-index: 100;
+		color: #fff;
+		overflow: hidden;
+	}
+	&__left{
+		float: left;
+	}
+	&__logo{
+		float: left;
+		height: 4.5rem;
+		width: 4.5rem;
+		margin-top: -0.7rem;
+		font-size: 0;
+		background: url('../images/icon.png') 0 0 no-repeat;
+		background-size: 100% 100%;
+	}
+	&__info{
+		float: left;
+		margin: auto 5px;
+		height: 3.5rem;
+		line-height: 1.8rem;
+	}
+	&__infoTitle{
+		font-size: 1.6rem;
+	}
+	&__infoDetail{
+		font-size: 1.2rem;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	&__right{
+		float: right;
+		line-height: 3rem;
+		margin: auto;
+	}
+	&__download{
+		float: left;
+		right: 1.5rem;
+		width: 6rem;
+		font-size: 0;
+		background-size: 100% 100%;
+
+		// 特殊定义
+		background: #fff;
+		border-radius: 5px;
+		color: #1583e4;
+		font-size: 1.3rem;
+		text-align: center;
+		text-decoration: none;
+		font-weight: bold;
+		margin-right: 0.5rem;
+
+		&--ios{
+			background: url('../images/AppStore.png') 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		&--android{
+			background: url('../images/androidStore.png') 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+	}
+	&__home{
+		float: left;
+		background: url("../images/home.png") 0 0 no-repeat;
+		background-size: 100% 100%;
+		width: 2rem;
+		height: 1.6rem;
+		margin: 0.7rem 1rem 0.7rem 0;
+		font-size: 0;
+	}
+
+	.nav{
+		display: none;
+		width: 100%;
+		background: #1b598e;
+		position: fixed;
+		top: 5rem;
+		padding: 1rem 0;
+		&__btnList{
+			overflow: hidden;
+		}
+		&__btn{
+			display: block;
+			float: left;
+			background: url('../images/nav_btn.png') 0 0 no-repeat;
+			background-size: 100% 100%;
+			width: 50%;
+			padding: 0.5rem 0;
+			text-decoration: none;
+			box-sizing: border-box;
+			:nth-child(even){
+				text-align: left;
+			}
+			&:nth-child(odd){
+				text-align: right;
+			}
+			span{
+				vertical-align: middle;
+			}
+		}
+		&__logo{
+			margin: 0 1rem;
+			display: inline-block;
+			background-image: spriteUrl($nav__btn);
+			background-size: sprite-width($nav__btn) / 2;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			&--home{
+				$icon: 'home';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}
+			&--info{
+				$icon: 'info';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}
+			&--appointment{
+				$icon: 'appointment';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}
+			&--strategy{
+				$icon: 'strategy';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}		
+			&--beauty{
+				$icon: 'beauty';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}
+			&--pet{
+				$icon: 'pet';
+				background-position: (nth(sprite-position($nav__btn, $icon), 1) / 2) (nth(sprite-position($nav__btn, $icon), 2) / 2);
+				width: sprite-width($nav__btn, $icon) / 2;
+				height: sprite-height($nav__btn, $icon) / 2;
+			}
+		}
+		&__exit{
+			position: absolute;
+			top: 100%;
+			right: 0;
+			text-align: center;
+			padding: 0.5rem;
+			background-color: #1b598e;
+			z-index: 3;
+			img{
+				width: 80%;
+			}
+		}
+	}
+}
