@@ -40,7 +40,7 @@ module.exports = {
 	js: {
 		src: 'src/js/[^_]*.js',      // [^_],过滤掉以下划线“_”开头的文件。
 		dest: 'dist/js',
-		watch: 'src/js/**/*.js',
+		watch: 'src/js/**.js',
 		setting: {
 
 		}
@@ -134,19 +134,23 @@ module.exports = {
 	move: {
 		lib: {
 			src: 'src/lib/**',
-			dest: 'dist/lib'
+			dest: 'dist/lib',
+			watch: 'src/lib/**'
 		},
 		font: {
 			src: 'src/font/**',
-			dest: 'dist/font'
+			dest: 'dist/font',
+			watch: 'src/font/**'
 		},
 		swf: {
 			src: 'src/swf/**',
-			dest: 'dist/swf'
+			dest: 'dist/swf',
+			watch: 'src/swf/**'
 		},
 		media: {
 			src: 'src/media/**',
-			dest: 'dist/media'
+			dest: 'dist/media',
+			watch: 'src/media/**'
 		}
 	}
 };

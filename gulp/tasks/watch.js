@@ -19,4 +19,12 @@ gulp.task('watch', function () {
 
 	// watch *.png
 	gulp.watch( config.png.src, ['png'] );
+
+	// watch move
+	for(var item in config.move){
+		var moveWatch = [];
+		moveWatch.push( config.move[item].watch );
+	}
+
+	gulp.watch( moveWatch, ['move'] );
 });
