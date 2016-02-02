@@ -4,4 +4,4 @@
 var gulp 		= require('gulp');					// https://www.npmjs.com/package/gulp
 var config 		= require('../config.js');
 
-gulp.task('build', ['png', 'jpg', 'svg', 'gif']);
+gulp.task('img', ['png', 'jpg', 'svg', 'gif']);
