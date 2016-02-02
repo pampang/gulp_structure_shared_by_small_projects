@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp = require('gulp');		// https://www.npmjs.com/package/gulp
 var helpText = [
 	'1.  gulp ejs 			--> 编译ejs为html',
 	'2.  gulp sass 			--> 编译sass为css',

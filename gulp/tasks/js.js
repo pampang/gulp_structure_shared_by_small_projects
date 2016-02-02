@@ -1,11 +1,11 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 	= require('gulp');
+var gulp 	= require('gulp');				// https://www.npmjs.com/package/gulp
 var config 	= require('../config.js');
-var cache 	= require('gulp-cached');
-var plumber = require('gulp-plumber');
-var jshint 	= require('gulp-jshint');
+var cache 	= require('gulp-cached');		// https://www.npmjs.com/package/gulp-cached
+var plumber = require('gulp-plumber');		// https://www.npmjs.com/package/gulp-plumber
+var jshint 	= require('gulp-jshint');		// https://www.npmjs.com/package/gulp-jshint
 
 gulp.task('js', function () {
 	return gulp.src( config.js.src )

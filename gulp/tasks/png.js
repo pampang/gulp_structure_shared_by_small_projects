@@ -1,10 +1,10 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 				= require('gulp');
+var gulp 				= require('gulp');					// https://www.npmjs.com/package/gulp
 var config 				= require('../config.js');
-var changed 			= require('gulp-changed');
-var imageminPngquant 	= require('imagemin-pngquant');
+var changed 			= require('gulp-changed');			// https://www.npmjs.com/package/gulp-changed
+var imageminPngquant 	= require('imagemin-pngquant');		// https://www.npmjs.com/package/imagemin-pngquant
 
 gulp.task('png', function () {
 	return gulp.src( config.png.src )

@@ -1,10 +1,10 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 	= require('gulp');
-var path 	= require('path');
+var gulp 	= require('gulp');			// https://www.npmjs.com/package/gulp
+var path 	= require('path');			// nodeJs自带部件
 var config	= require('../config');
-var argv	= require('yargs').argv;
+var argv	= require('yargs').argv;	// https://www.npmjs.com/package/yargs
 
 gulp.task('cpfont', function () {
 	if( argv.f ){

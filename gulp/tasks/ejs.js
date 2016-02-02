@@ -1,13 +1,13 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 	= require('gulp');
+var gulp 	= require('gulp');			// https://www.npmjs.com/package/gulp
 var config 	= require('../config.js');
-var path 	= require('path');
-var cache 	= require('gulp-cached');
-var plumber = require('gulp-plumber');
-var data 	= require('gulp-data');
-var ejs 	= require('gulp-ejs');
+var path 	= require('path');			// nodeJS自带模块
+var cache 	= require('gulp-cached');	// https://www.npmjs.com/package/gulp-cached
+var plumber = require('gulp-plumber');	// https://www.npmjs.com/package/gulp-plumber
+var data 	= require('gulp-data');		// https://www.npmjs.com/package/gulp-data
+var ejs 	= require('gulp-ejs');		// https://www.npmjs.com/package/gulp-ejs
 
 gulp.task('ejs', function () {
 	return gulp.src( config.ejs.src )

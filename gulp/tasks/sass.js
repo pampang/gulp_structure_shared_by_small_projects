@@ -1,12 +1,12 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 			= require('gulp');
+var gulp 			= require('gulp');				// https://www.npmjs.com/package/gulp
 var config 			= require('../config.js');
-var cache 			= require('gulp-cached');
-var plumber 		= require('gulp-plumber');   // 防止compass编译出错的时候中断gulp进程。
-var compass			= require('gulp-compass');
-var autoprefixer 	= require('gulp-autoprefixer');
+var cache 			= require('gulp-cached');		// https://www.npmjs.com/package/gulp-cached
+var plumber 		= require('gulp-plumber'); 		// 防止compass编译出错的时候中断gulp进程。https://www.npmjs.com/package/gulp-plumber
+var compass			= require('gulp-compass');		// https://www.npmjs.com/package/gulp-compass
+var autoprefixer 	= require('gulp-autoprefixer');	// https://www.npmjs.com/package/gulp-autoprefixer
 
 gulp.task('sass', function() {
 	return gulp.src( config.sass.src )

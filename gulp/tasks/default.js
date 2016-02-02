@@ -1,8 +1,8 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 	= require('gulp');
-var argv	= require('yargs').argv;
+var gulp 	= require('gulp');			// https://www.npmjs.com/package/gulp
+var argv	= require('yargs').argv;	// https://www.npmjs.com/package/yargs
 var config 	= require('../config.js');
 
 gulp.task('default', function () {

@@ -1,11 +1,11 @@
 ////////////////////////////////////////
 // written by pangweizhan, 2016-01-28 //
 ////////////////////////////////////////
-var gulp 	= require('gulp');
-var path 	= require('path');
+var gulp 	= require('gulp');            // https://www.npmjs.com/package/gulp
+var path 	= require('path');            // nodeJS自带模块
 var config 	= require('../config.js');
-var fontmin = require('gulp-fontmin');
-var argv	= require('yargs').argv;
+var fontmin = require('gulp-fontmin');    // https://www.npmjs.com/package/gulp-fontmin
+var argv	= require('yargs').argv;      // https://www.npmjs.com/package/yargs
 
 function minifyFont(text, cb) {
     gulp
