@@ -15,3 +15,6 @@ In the project, you can run gulp tasks like:
 1. gulp cpfont -f [your font name] --> 从util_font/文件夹中将需要用到的字体复制过来
 1. gulp cptpl -s [tpl name] -d [your project name]  --> 从util_tpl/文件夹中将指定的初始化模板复制到app中，并改为你指定的名字
 1. gulp font [-s htmlFileName -s htmlFileName -s htmlFileName ... ] --> 根据html内容压缩字体。默认是遍历所有HTML文件，亦可指定某一个或多个HTMl文件。
+	1. 注意：
+	2. **所压缩的字体，后缀名必须是*`“.ttf”`*，必须小写！！**
+	3. 如果使用的后缀名为".TTF"，又抑或整个字体文件并不完善，则会报错，或者无法压缩成功。
