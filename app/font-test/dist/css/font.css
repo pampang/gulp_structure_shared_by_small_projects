@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'fzqk';
+  src: url("../font/fzqk.eot");
+  src: url("../font/fzqk.eot?#font-spider") format("embedded-opentype"), url("../font/fzqk.woff") format("woff"), url("../font/fzqk.ttf") format("truetype"), url("../font/fzqk.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'sp';
+  src: url("../font/sp.eot");
+  src: url("../font/sp.eot?#font-spider") format("embedded-opentype"), url("../font/sp.woff") format("woff"), url("../font/sp.ttf") format("truetype"), url("../font/sp.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+h1 {
+  font-family: 'fzqk';
+}
+
+h2 {
+  font-family: 'sp';
+}

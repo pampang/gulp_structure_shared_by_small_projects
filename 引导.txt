@@ -1,0 +1,9 @@
+当你进入到这里目录的时候，请执行以下步骤：
+
+1、检查当前目录下有没有package.json文件。如果没有，请找其他组员要一个。
+2、在C:\Windows\System32\drivers\etc\hosts文件中，添加：
+	# imagemin集群插件的host修改
+	185.31.18.133		raw.github.com
+3、打开命令行，输入：  npm install   或   npm i(这个是前者的缩写)  安装package.json中所列出的依赖插件。
+4、同样在命令行中，输入：   npm i gulp -g 	，全局安装gulp插件，这得以让我们在任何一个目录位置使用gulp命令。如果不这样做，会报错，说的是没有gulp这个命令。
+5、如果在安装过程中发现报错，可以问问其他人，大家群策群力，解决它！
