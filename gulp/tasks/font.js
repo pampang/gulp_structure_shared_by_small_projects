@@ -18,8 +18,8 @@ function minifyFont(text, cb) {
 }
 
 gulp.task('font', function (cb) {
-	var page = '*';   // 默认是通配所有html
-	var pageBasePath = 'dist/';
+	  var page = '*';   // 默认是通配所有html
+	  var pageBasePath = 'dist/';
     var buffers = [];
 
     // 设置需要配置的html页面
@@ -37,7 +37,7 @@ gulp.task('font', function (cb) {
 
     getFont( page );
 
-    function isArray(obj) {  
+    function isArray(obj) {
       return Object.prototype.toString.call(obj) === '[object Array]';
     }
 
@@ -50,7 +50,7 @@ gulp.task('font', function (cb) {
     	    .on('end', function () {
     	        var text = Buffer.concat(buffers).toString('utf-8');
     	        minifyFont(text, cb);
-    	    });	
+    	    });
     }
 
 });

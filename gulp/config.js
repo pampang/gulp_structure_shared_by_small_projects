@@ -54,7 +54,7 @@ module.exports = {
 	},
 	imageminPngquant: {
 		setting: {
-			quality: '65-80',      	// 压缩质量
+			quality: '35-80',      	// 压缩质量
 			speed: 4				// 压缩速度
 		}
 	},
