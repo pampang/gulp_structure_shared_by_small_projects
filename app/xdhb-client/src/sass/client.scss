@@ -1,0 +1,98 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/utilities";
+@import "compass/reset";
+@import "../../../../util_sass/_rem.scss";
+
+.success{
+  width: 100%;
+  height: 12rem;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__image{
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+  &__text{
+    margin-top: 0.8rem;
+    font-size: 1.4rem;
+    color: #404040;
+  }
+}
+
+.redpocket{
+  width: 100%;
+  padding-top: 2.4rem;
+  background-color: #fff;
+  &__wrap{
+    width: 24.9rem;
+    margin: auto;
+    position: relative;
+  }
+  &__bg{
+    width: 100%;
+    height: auto;
+  }
+  &__content{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__price{
+    position: absolute;
+    top: 4.8rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #ff383d;
+    &--price{
+      margin-right: 0.5rem;
+      font-size: 4.8rem;
+      font-weight: bold;
+    }
+  }
+  &__info{
+    margin-top: 14.5rem;
+  }
+  &__congratulation{
+    max-width: 90%;
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  &__checkout{
+    max-width: 90%;
+    margin: auto;
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  &__remain{
+    max-width: 90%;
+    margin: auto;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #fff8a9;
+  }
+  &__share{
+    max-width: 90%;
+    margin: auto;
+    margin-top: 1.2rem;
+    width: 19.6rem;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: #fff8a9;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff383d;
+  }
+}

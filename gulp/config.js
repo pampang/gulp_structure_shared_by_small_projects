@@ -5,14 +5,6 @@ var path = require('path');
 // 因此取消使用“./”路径。
 
 module.exports = {
-	ejs: {
-		src: 'src/[^_]*.ejs',   // [^_],过滤掉以下划线“_”开头的文件。
-		dest: 'dist',
-		watch: [ 'src/**/*.ejs', 'src/data/**' ],
-		setting: {
-
-		}
-	},
 	sass: {
 		src: 'src/sass/*.scss',
 		dest: 'dist/css',
@@ -26,13 +18,10 @@ module.exports = {
 	autoprefixer: {
 		setting: {
 			browsers: [
-				'last 2 versions',
-				'safari 5',
-				'ie 8',
-				'ie 9',
-				'opera 12.1',
-				'ios 6',
-				'android 4'
+				'last 10000 versions',
+        'ios 6',
+        'android 2.3',
+        '>1%',
 			],   // 设置要适配的浏览器前缀
 			remove: false   // 是否删除无用的前缀，默认为true。
 		}
@@ -49,7 +38,7 @@ module.exports = {
 		src: 'src/images/[^_]**.png',
 		dest: 'dist/images',
 		setting: {
-			
+
 		}
 	},
 	imageminPngquant: {
@@ -132,6 +121,11 @@ module.exports = {
 	// 	}
 	// },
 	move: {
+		html: {
+			src: 'src/*.html',
+			dest: 'dist',
+			watch: 'src/*.html'
+		},
 		lib: {
 			src: 'src/lib/**',
 			dest: 'dist/lib',

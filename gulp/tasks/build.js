@@ -6,5 +6,5 @@ var runSequence = require('gulp-run-sequence');		// https://www.npmjs.com/packag
 var config 		= require('../config.js');
 
 gulp.task('build', function () {
-	runSequence('sass', ['ejs', 'js', 'img', 'move']);
+	runSequence('sass', [/*'ejs',*/ 'js', 'img', 'move']);
 });

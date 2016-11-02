@@ -8,8 +8,8 @@ var browserSync = require('browser-sync').create();		// https://www.npmjs.com/pa
 gulp.task('watch', function () {
 	browserSync.init( config.browserSync.setting );
 
-	// watch *.ejs
-	gulp.watch( config.ejs.watch, ['ejs'] );
+	// // watch *.ejs
+	// gulp.watch( config.ejs.watch, ['ejs'] );
 
 	// watch *.scss
 	gulp.watch( config.sass.watch, ['sass'] );
@@ -31,9 +31,8 @@ gulp.task('watch', function () {
 
 	// watch move
 	for(var item in config.move){
-		var moveWatch = [];
-		moveWatch.push( config.move[item].watch );
+		gulp.watch( config.move[item].watch, ['move'] );
 	}
 
-	gulp.watch( moveWatch, ['move'] );
+	// gulp.watch( moveWatch, ['move'] );
 });
