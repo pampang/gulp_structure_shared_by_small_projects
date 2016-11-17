@@ -55,14 +55,14 @@
           // 错误处理...
           return;
         }
-        if (!data.image) {
+        if (!data.imageUrl) {
           alert('没有图片！');
           return;
         }
         var body = document.getElementsByTagName('body')[0];
         var img = document.createElement('img');
         img.style.height = '300px';
-        img.setAttribute('src', data.image);
+        img.setAttribute('src', data.imageUrl);
         body.appendChild(img);
       },
     });
