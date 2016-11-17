@@ -198,6 +198,14 @@ html {
   font-size: 1.2rem;
   color: #fff;
 }
+/*下单红包被抢光*/
+.headContent--isExceed{
+  display: none;
+  padding-top: 1.6rem;
+  width: 100%;
+  text-align: center;
+}
+/*下单红包被抢光*/
 
 .redpocket {
   width: 100%;
@@ -229,20 +237,67 @@ html {
   left: 0;
 }
 .redpocket__price {
+  height: 3.6rem;
   position: absolute;
   padding-top: 16.277108%;
   top: 0;
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 3.6rem;
   color: #ff383d;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.redpocket__price--prefix {
+  height: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.redpocket__price--prefixText {
+  font-size: 1.1rem;
+  color: #999;
+}
+.redpocket__price--prefixSymbol {
+  margin-top: 0.4rem;
+  font-size: 1.4rem;
+  position: relative;
 }
 .redpocket__price--price {
-  margin-right: 0.5rem;
-  font-size: 4.8rem;
+  margin-left: 0.6rem;
+  line-height: 3.6rem;
+  font-size: 3.6rem;
   font-weight: bold;
 }
+
+/*红包被抢光*/
+.redpocket__price--isExceed{
+  display: none;
+  position: absolute;
+  padding-top: 16.277108%;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.redpocket__download--text1{
+  font-size: 1.2rem;
+  color: #999;
+}
+.redpocket__download--text2{
+  padding-top: 0.8rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+.redpocket__download--price{
+  color: #ff383d;
+}
+/*红包被抢光*/
+
 .redpocket__btn {
   position: absolute;
   bottom: 4rem;
@@ -740,38 +795,37 @@ html {
 }
 
 .confirm {
+  z-index: 3;
   position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   display: none;
 }
+.confirm__mask {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .confirm__wrap {
+  position: absolute;
+  top: 13rem;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 25rem;
   max-width: 70%;
-  margin: auto;
   background-color: #fff;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
-  padding: 1.6rem;
+  padding: 2.4rem;
 }
 .confirm__desc {
   width: 100%;
@@ -820,6 +874,12 @@ html {
           border-radius: 5px;
   font-size: 1.4rem;
 }
+.confirm__error {
+   font-size: 1.2rem;
+   color: #ff383d;
+   margin-top: 1.2rem;
+   padding: 0 0.5rem;
+}
 .confirm__btn {
   margin-top: 1.2rem;
   width: 100%;
@@ -835,32 +895,32 @@ html {
 }
 
 .alert {
+  z-index: 3;
   position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  display: none;
+}
+.alert__mask {
   background-color: rgba(0, 0, 0, 0.7);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .alert__wrap {
+  position: absolute;
+  top: 13rem;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 25rem;
   max-width: 70%;
-  margin: auto;
   background-color: #fff;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
@@ -887,6 +947,7 @@ html {
   color: #333;
 }
 .alert__text--small {
+  padding-top: 0.8rem;
   font-size: 1.1rem;
   color: #999;
 }
@@ -900,7 +961,7 @@ html {
   color: #333;
 }
 .alert__btn {
-  margin-top: 1.2rem;
+  margin-top: 2.4rem;
   width: 100%;
   height: 4rem;
   line-height: 4rem;

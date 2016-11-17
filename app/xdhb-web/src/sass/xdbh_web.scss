@@ -12,7 +12,12 @@
 }
 
 .head{
-
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 
 // 左上角标签
@@ -71,6 +76,14 @@
 .redpocket{
   width: 100%;
   padding-top: 2.4rem;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
   &__wrap{
     width: 24.9rem;
     max-width: 60%;
@@ -105,13 +118,15 @@
   }
   &__btn{
     position: absolute;
-    padding-top: 64.257028%;
-    top: 0;
+    bottom: 4rem;
     left: 0;
     right: 0;
     margin: auto;
     width: 9rem;
     height: 9.1rem;
+    &:active{
+      opacity: 0.5;
+    }
     &--image{
       width: 100%;
     }
@@ -133,10 +148,122 @@
   width: 100%;
   margin: 0;
   margin-top: -28.9rem;
+  position: relative;
+  z-index: 1;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
   &__image{
     width: 100%;
     height: auto;
     display: block;
+    &--absolute{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    &--light3{
+      animation: light23 1.6s infinite;
+      animation-delay: 0.6s;
+    }
+    &--light2{
+      animation: light23 1.6s infinite;
+    }
+    &--light1{
+      animation: light1 2s infinite;
+    }
+    &--star1{
+      animation: star1 3s infinite;
+    }
+    &--star2{
+      animation: star2 3s infinite;
+    }
+    &--star3{
+      animation: star3 3s infinite;
+    }
+  }
+}
+
+@keyframes light1
+{
+  from {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes light23
+{
+  from {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+
+@keyframes star1
+{
+  0% {
+    opacity: 1;
+  }
+  16.65% {
+    opacity: 0;
+  }
+  83.35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes star2
+{
+  0% {
+    opacity: 0;
+  }
+  16.65% {
+    opacity: 0;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  49.95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes star3
+{
+  0% {
+    opacity: 0;
+  }
+  49.95% {
+    opacity: 0;
+  }
+  66.66% {
+    opacity: 1;
+  }
+  83.35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -184,6 +311,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
   &__title{
     width: 24rem;
     height: 3.6rem;
