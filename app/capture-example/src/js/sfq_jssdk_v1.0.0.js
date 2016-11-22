@@ -8,6 +8,14 @@
   // 存储callback
   var CALLBACK_MAP = {};
 
+  const MessageDispatcher = function (currentSchema, data) {
+    var dispatchMessage = {
+      schema: currentSchema,
+      data: data,
+    };
+    window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+  }
+
   sfq.prototype = {
     // ready: function() {},
 
@@ -16,68 +24,44 @@
       // 发起一个分享
       var currentSchema = 'share:panel:share';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          shareOption: config.shareOption,
-        }
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        shareOption: config.shareOption,
+      });
     },
     shareToWeixin: function (config) {
       var currentSchema = 'share:weixin:share';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          shareOption: config.shareOption,
-        }
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        shareOption: config.shareOption,
+      });
     },
     shareToWeixinCircle: function (config) {
       var currentSchema = 'share:weixinCircle:share';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          shareOption: config.shareOption,
-        }
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        shareOption: config.shareOption,
+      });
     },
     shareToWeibo: function (config) {
       var currentSchema = 'share:weibo:share';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          shareOption: config.shareOption,
-        }
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        shareOption: config.shareOption,
+      });
     },
     shareToQQ: function (config) {
       var currentSchema = 'share:qq:share';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          shareOption: config.shareOption,
-        }
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        shareOption: config.shareOption,
+      });
     },
 
     /* 拍照 */
     selectImage: function (config) {
       var currentSchema = 'capture:image:select';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {},
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {});
     },
 
     /* webview */
@@ -85,33 +69,21 @@
       var currentSchema = 'webview:current:close';
       // 不需要callback
       // CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {},
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {});
     },
 
     refreshWebview: function (config) {
       var currentSchema = 'webview:current:refresh';
       // 不需要callback
       // CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {},
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {});
     },
 
     /* 设备 */
     getNetwork: function (config) {
-      var currentSchema = 'webview:current:refresh';
+      var currentSchema = 'device:network:get';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {},
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {});
     },
 
     /* 跳转 */
@@ -123,13 +95,22 @@
       }
       var currentSchema = 'route:mallTopic:push';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          topicId: config.topicId,
-        },
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        topicId: config.topicId,
+      });
+    },
+
+    replaceMallTopic: function (config) {
+      // 字段校验
+      if (!config.topicId) {
+        config.callback(new Error('请填写专题id'), null);
+        return;
+      }
+      var currentSchema = 'route:mallTopic:replace';
+      CALLBACK_MAP[currentSchema] = config.callback;
+      MessageDispatcher(currentSchema, {
+        topicId: config.topicId,
+      });
     },
 
     pushMallItem: function (config) {
@@ -141,13 +122,29 @@
 
       var currentSchema = 'route:mallItem:push';
       CALLBACK_MAP[currentSchema] = config.callback;
-      var dispatchMessage = {
-        schema: currentSchema,
-        data: {
-          productId: config.productId,
-        },
-      };
-      window.WebViewBridge.send(JSON.stringify(dispatchMessage));
+      MessageDispatcher(currentSchema, {
+        productId: config.productId,
+      });
+    },
+
+    replaceMallItem: function (config) {
+      // 字段校验
+      if (!config.productId) {
+        config.callback(new Error('请填写商品id'), null);
+        return;
+      }
+
+      var currentSchema = 'route:mallItem:replace';
+      CALLBACK_MAP[currentSchema] = config.callback;
+      MessageDispatcher(currentSchema, {
+        productId: config.productId,
+      });
+    },
+
+    pushUserLogin: function (config) {
+      var currentSchema = 'route:userLogin:push';
+      CALLBACK_MAP[currentSchema] = config.callback;
+      MessageDispatcher(currentSchema, {});
     },
   };
   window.sfq = new sfq();
@@ -161,112 +158,113 @@
       if (window.WebViewBridge) {
         clearInterval(timer);
 
+        const UniversalHandler = function (data, relatedSchema) {
+          var callback = CALLBACK_MAP[relatedSchema];
+          delete CALLBACK_MAP[relatedSchema];
+          if (data.error) {
+            console.warn(data.error);
+            // 错误处理...
+            callback && callback(data.error, null);
+            return;
+          }
+          // 对数据做其他操作...
+          callback && callback(null, data);
+        }
+
         var getShareHandler = function (message) {
-          var data = message.data;
           return {
             panel: {
               shareEnd: function() {
                 var relatedSchema = 'share:panel:share';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             },
             weixin: {
               shareEnd: function() {
                 var relatedSchema = 'share:weixin:share';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             },
             weixinCircle: {
               shareEnd: function() {
                 var relatedSchema = 'share:weixinCircle:share';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             },
             weibo: {
               shareEnd: function() {
                 var relatedSchema = 'share:weibo:share';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             },
             qq: {
               shareEnd: function() {
                 var relatedSchema = 'share:qq:share';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             },
           };
         };
 
         var getCaptureHandler = function (message) {
-          var data = message.data;
           return {
             image: {
               selectEnd: function () {
                 var relatedSchema = 'capture:image:select';
-                var callback = CALLBACK_MAP[relatedSchema];
-                delete CALLBACK_MAP[relatedSchema];
-                if (data.error) {
-                  console.warn(data.error);
-                  // 错误处理...
-                  callback(data.error, null);
-                  return;
-                }
-                // 对数据做其他操作...
-                callback(null, data);
+                UniversalHandler(message.data, relatedSchema);
               },
             }
           };
         };
 
+        var getDeviceHandler = function (message) {
+          return {
+            network: {
+              getEnd: function () {
+                var relatedSchema = 'device:network:get';
+                UniversalHandler(message.data, relatedSchema);
+              },
+            },
+          };
+        }
+
+        var getRouteHandler = function (message) {
+          return {
+            mallTopic: {
+              pushEnd: function () {
+                var relatedSchema = 'route:mallTopic:push';
+                UniversalHandler(message.data, relatedSchema);
+              },
+              replaceEnd: function () {
+                var relatedSchema = 'route:mallTopic:replace';
+                UniversalHandler(message.data, relatedSchema);
+              },
+            },
+            mallItem: {
+              pushEnd: function () {
+                var relatedSchema = 'route:mallItem:push';
+                UniversalHandler(message.data, relatedSchema);
+              },
+              replaceEnd: function () {
+                var relatedSchema = 'route:mallItem:replace';
+                UniversalHandler(message.data, relatedSchema);
+              },
+            },
+            userLogin: {
+              pushEnd: function () {
+                var relatedSchema = 'route:userLogin:push';
+                UniversalHandler(message.data, relatedSchema);
+              },
+            },
+          };
+        }
+
         var getHandler = function (message) {
           return {
             share: getShareHandler(message),
             capture: getCaptureHandler(message),
+            device: getDeviceHandler(message),
+            route: getRouteHandler(message),
           };
         };
 
