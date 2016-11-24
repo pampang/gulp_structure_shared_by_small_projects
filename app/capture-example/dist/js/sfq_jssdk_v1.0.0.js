@@ -8,143 +8,156 @@
   // 存储callback
   var CALLBACK_MAP = {};
 
-  const MessageDispatcher = function (currentSchema, data) {
+  var MessageDispatcher = function (currentSchema, data) {
     var dispatchMessage = {
       schema: currentSchema,
       data: data,
     };
     window.WebViewBridge.send(JSON.stringify(dispatchMessage));
-  }
+  };
 
   sfq.prototype = {
     // ready: function() {},
 
     /* 分享 */
-    share: function (config) {
-      // 发起一个分享
-      var currentSchema = 'share:panel:share';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        shareOption: config.shareOption,
-      });
-    },
-    shareToWeixin: function (config) {
-      var currentSchema = 'share:weixin:share';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        shareOption: config.shareOption,
-      });
-    },
-    shareToWeixinCircle: function (config) {
-      var currentSchema = 'share:weixinCircle:share';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        shareOption: config.shareOption,
-      });
-    },
-    shareToWeibo: function (config) {
-      var currentSchema = 'share:weibo:share';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        shareOption: config.shareOption,
-      });
-    },
-    shareToQQ: function (config) {
-      var currentSchema = 'share:qq:share';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        shareOption: config.shareOption,
-      });
+    share: {
+      panel: function (option, callback) {
+        // 发起一个分享
+        var currentSchema = 'share:panel:share';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, option);
+      },
+      weixin: function (option, callback) {
+        var currentSchema = 'share:weixin:share';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, option);
+      },
+      weixinCircle: function (option, callback) {
+        var currentSchema = 'share:weixinCircle:share';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, option);
+      },
+      weibo: function (option, callback) {
+        var currentSchema = 'share:weibo:share';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, option);
+      },
+      qq: function (option, callback) {
+        var currentSchema = 'share:qq:share';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, option);
+      },
     },
 
-    /* 拍照 */
-    selectImage: function (config) {
-      var currentSchema = 'capture:image:select';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {});
+    /* 拍照相关 */
+    capture: {
+      selectImage: function (option, callback) {
+        var currentSchema = 'capture:image:select';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, {});
+      },
     },
 
     /* webview */
-    closeWebview: function (config) {
-      var currentSchema = 'webview:current:close';
-      // 不需要callback
-      // CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {});
-    },
+    webview: {
+      /* webview */
+      close: function () {
+        var currentSchema = 'webview:current:close';
+        MessageDispatcher(currentSchema, {});
+      },
 
-    refreshWebview: function (config) {
-      var currentSchema = 'webview:current:refresh';
-      // 不需要callback
-      // CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {});
+      refresh: function () {
+        var currentSchema = 'webview:current:refresh';
+        MessageDispatcher(currentSchema, {});
+      },
     },
 
     /* 设备 */
-    getNetwork: function (config) {
-      var currentSchema = 'device:network:get';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {});
+    device: {
+      network: function (option, callback) {
+        var currentSchema = 'device:network:get';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, {});
+      },
     },
 
-    /* 跳转 */
-    pushMallTopic: function (config) {
-      // 字段校验
-      if (!config.topicId) {
-        config.callback(new Error('请填写专题id'), null);
-        return;
-      }
-      var currentSchema = 'route:mallTopic:push';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        topicId: config.topicId,
-      });
-    },
-
-    replaceMallTopic: function (config) {
-      // 字段校验
-      if (!config.topicId) {
-        config.callback(new Error('请填写专题id'), null);
-        return;
-      }
-      var currentSchema = 'route:mallTopic:replace';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        topicId: config.topicId,
-      });
-    },
-
-    pushMallItem: function (config) {
-      // 字段校验
-      if (!config.productId) {
-        config.callback(new Error('请填写商品id'), null);
-        return;
-      }
-
-      var currentSchema = 'route:mallItem:push';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        productId: config.productId,
-      });
-    },
-
-    replaceMallItem: function (config) {
-      // 字段校验
-      if (!config.productId) {
-        config.callback(new Error('请填写商品id'), null);
-        return;
-      }
-
-      var currentSchema = 'route:mallItem:replace';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {
-        productId: config.productId,
-      });
-    },
-
-    pushUserLogin: function (config) {
-      var currentSchema = 'route:userLogin:push';
-      CALLBACK_MAP[currentSchema] = config.callback;
-      MessageDispatcher(currentSchema, {});
+    /* 路由 */
+    route: {
+      // option组成：
+      // target: 'MallItem' / 'MallTopic' / 'UserLogin'... ,
+      // params: {
+      //     productId: Number,
+      //     topicId: String,
+      // },
+      push: function (option, callback) {
+        var currentSchema = null;
+        var params = option && option.params;
+        if (option && option.target) {
+          // 检查是否存在对应页面
+          switch (option.target.toLowerCase()) {
+            case 'mallitem':
+              // 字段校验
+              if (!params || !params.productId) {
+                callback(new Error('请填写商品id'), null);
+                return;
+              }
+              currentSchema = 'route:mallItem:push';
+              break;
+            case 'malltopic':
+              // 字段校验
+              if (!params || !params.topicId) {
+                callback(new Error('请填写专题id'), null);
+                return;
+              }
+              currentSchema = 'route:mallTopic:push';
+              break;
+            case 'userlogin':
+              currentSchema = 'route:userLogin:push';
+              break;
+            default:
+              callback(new Error('暂时不支持跳转到该页面哦，抱歉~'), null);
+              return;
+          }
+          CALLBACK_MAP[currentSchema] = callback;
+          MessageDispatcher(currentSchema, params);
+        } else {
+          callback(new Error('请填写必要的传入参数！'), null);
+          return;
+        }
+      },
+      replace: function (option, callback) {
+        var currentSchema = null;
+        var params = option && option.params;
+        if (option && option.target) {
+          // 检查是否存在对应页面
+          switch (option.target.toLowerCase()) {
+            case 'mallitem':
+              // 字段校验
+              if (!params || !params.productId) {
+                callback(new Error('请填写商品id'), null);
+                return;
+              }
+              currentSchema = 'route:mallItem:replace';
+              break;
+            case 'malltopic':
+              // 字段校验
+              if (!params || !params.topicId) {
+                callback(new Error('请填写专题id'), null);
+                return;
+              }
+              currentSchema = 'route:mallTopic:replace';
+              break;
+            default:
+              callback(new Error('暂时不支持跳转到该页面哦，抱歉~'), null);
+              return;
+          }
+          CALLBACK_MAP[currentSchema] = callback;
+          MessageDispatcher(currentSchema, params);
+        } else {
+          callback(new Error('请填写必要的传入参数！'), null);
+          return;
+        }
+      },
     },
   };
   window.sfq = new sfq();
@@ -158,7 +171,7 @@
       if (window.WebViewBridge) {
         clearInterval(timer);
 
-        const UniversalHandler = function (data, relatedSchema) {
+        MessageHandler = function (data, relatedSchema) {
           var callback = CALLBACK_MAP[relatedSchema];
           delete CALLBACK_MAP[relatedSchema];
           if (data.error) {
@@ -169,38 +182,38 @@
           }
           // 对数据做其他操作...
           callback && callback(null, data);
-        }
+        };
 
         var getShareHandler = function (message) {
           return {
             panel: {
               shareEnd: function() {
                 var relatedSchema = 'share:panel:share';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             weixin: {
               shareEnd: function() {
                 var relatedSchema = 'share:weixin:share';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             weixinCircle: {
               shareEnd: function() {
                 var relatedSchema = 'share:weixinCircle:share';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             weibo: {
               shareEnd: function() {
                 var relatedSchema = 'share:weibo:share';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             qq: {
               shareEnd: function() {
                 var relatedSchema = 'share:qq:share';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
           };
@@ -211,7 +224,7 @@
             image: {
               selectEnd: function () {
                 var relatedSchema = 'capture:image:select';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             }
           };
@@ -222,42 +235,42 @@
             network: {
               getEnd: function () {
                 var relatedSchema = 'device:network:get';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
           };
-        }
+        };
 
         var getRouteHandler = function (message) {
           return {
             mallTopic: {
               pushEnd: function () {
                 var relatedSchema = 'route:mallTopic:push';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
               replaceEnd: function () {
                 var relatedSchema = 'route:mallTopic:replace';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             mallItem: {
               pushEnd: function () {
                 var relatedSchema = 'route:mallItem:push';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
               replaceEnd: function () {
                 var relatedSchema = 'route:mallItem:replace';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
             userLogin: {
               pushEnd: function () {
                 var relatedSchema = 'route:userLogin:push';
-                UniversalHandler(message.data, relatedSchema);
+                MessageHandler(message.data, relatedSchema);
               },
             },
           };
-        }
+        };
 
         var getHandler = function (message) {
           return {
