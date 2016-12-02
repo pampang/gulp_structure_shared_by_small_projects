@@ -56,6 +56,11 @@
         CALLBACK_MAP[currentSchema] = callback;
         MessageDispatcher(currentSchema, {});
       },
+      selectOCR: function (option, callback) {
+        var currentSchema = 'capture:ocr:select';
+        CALLBACK_MAP[currentSchema] = callback;
+        MessageDispatcher(currentSchema, {});
+      },
     },
 
     /* webview */
@@ -224,6 +229,12 @@
             image: {
               selectEnd: function () {
                 var relatedSchema = 'capture:image:select';
+                MessageHandler(message.data, relatedSchema);
+              },
+            },
+            ocr: {
+              selectEnd: function () {
+                var relatedSchema = 'capture:ocr:select';
                 MessageHandler(message.data, relatedSchema);
               },
             }

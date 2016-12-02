@@ -63,14 +63,29 @@
     //   }
     // });
 
-    // sfq.share.weixin({
-    //   content: "我在【奢分期】发现只需几百首付就可以买到国外一线奢侈品正品，再不来就被抢光啦！",
-    //   imageUrl:"http://mall.image.shefenqi.com/product/iupd7fip0mb01400.jpg@0o_1l_640w_90q.jpg",
-    //   targetUrl: decodeURIComponent(pairs.targetUrl),
-    //   title: "芭法娜 项饰/吊坠仅需¥313就可以带回家，赶紧看！",
-    // }, function shareCallback(error, data) {
-    //   console.log(1);
+    // sfq.capture.selectOCR(null, function shareCallback(error, data) {
+    //   if (error) {
+    //     console.log(error);
+    //     // 错误处理...
+    //     return;
+    //   }
+    //   if (data.imageUrl) {
+    //     var body = document.getElementsByTagName('body')[0];
+    //     var img = document.createElement('img');
+    //     img.style.height = '300px';
+    //     img.setAttribute('src', data.imageUrl);
+    //     body.appendChild(img);
+    //   }
     // });
+
+    sfq.share.weixin({
+      content: "我在【奢分期】发现只需几百首付就可以买到国外一线奢侈品正品，再不来就被抢光啦！",
+      imageUrl:"http://mall.image.shefenqi.com/product/iupd7fip0mb01400.jpg@0o_1l_640w_90q.jpg",
+      targetUrl: decodeURIComponent(pairs.targetUrl),
+      title: "芭法娜 项饰/吊坠仅需¥313就可以带回家，赶紧看！",
+    }, function shareCallback(error, data) {
+      console.log(1);
+    });
 
     // sfq.pushMallTopic({
     //   topicId: "t147",
