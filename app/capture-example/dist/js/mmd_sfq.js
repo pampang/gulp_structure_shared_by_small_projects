@@ -17,17 +17,17 @@ mmd.mmd_openOCR = function (mmdCallback) {
   });
 }
 
-mmd.mmd_applyFinfish = function (result) {
+mmd.mmd_applyFinish = function (result) {
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.applyFinish(result);
 }
 
-mmd.mmd_activationFinfish = function (result) {
+mmd.mmd_activationFinish = function (result) {
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.activateFinish(result);
 }
 
-mmd.mmd_payFinfish = function (result) {
+mmd.mmd_payFinish = function (result) {
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.payFinish(result);
 }
