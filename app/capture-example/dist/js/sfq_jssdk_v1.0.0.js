@@ -170,15 +170,15 @@
 
     /* 么么贷 */
     mmd: {
-      finishApply: function (result) {
+      applyFinish: function (result) {
         var currentSchema = 'mmd:apply:finish';
         MessageDispatcher(currentSchema, result);
       },
-      finishActivate: function (result) {
+      activateFinish: function (result) {
         var currentSchema = 'mmd:activate:finish';
         MessageDispatcher(currentSchema, result);
       },
-      finishPay: function (result) {
+      payFinish: function (result) {
         var currentSchema = 'mmd:pay:finish';
         MessageDispatcher(currentSchema, result);
       },

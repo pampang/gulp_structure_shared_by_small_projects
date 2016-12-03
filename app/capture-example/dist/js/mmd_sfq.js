@@ -18,16 +18,19 @@ mmd.mmd_openOCR = function (mmdCallback) {
 }
 
 mmd.mmd_applyFinish = function (result) {
+  alert(1);
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.applyFinish(result);
 }
 
 mmd.mmd_activationFinish = function (result) {
+  alert(1);
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.activateFinish(result);
 }
 
 mmd.mmd_payFinish = function (result) {
+  alert(1);
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.payFinish(result);
 }
