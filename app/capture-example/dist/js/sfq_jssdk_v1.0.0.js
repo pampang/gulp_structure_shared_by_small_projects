@@ -16,6 +16,9 @@
     window.WebViewBridge.send(JSON.stringify(dispatchMessage));
   };
 
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  // 对外暴露的方法，供外部调用 start
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   sfq.prototype = {
     // ready: function() {},
 
@@ -164,13 +167,33 @@
         }
       },
     },
+
+    /* 么么贷 */
+    mmd: {
+      finishApply: function (result) {
+        var currentSchema = 'mmd:apply:finish';
+        MessageDispatcher(currentSchema, result);
+      },
+      finishActivate: function (result) {
+        var currentSchema = 'mmd:activate:finish';
+        MessageDispatcher(currentSchema, result);
+      },
+      finishPay: function (result) {
+        var currentSchema = 'mmd:pay:finish';
+        MessageDispatcher(currentSchema, result);
+      },
+    },
   };
   window.sfq = new sfq();
+   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  // 对外暴露的方法，供外部调用 end
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 
   // 利用setTimeout来保证WebViewBridge一定出现。
   var timer = setInterval(function() {
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    // 接收处理部分 start
+    // 处理回传结果部分 start
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     try {
       if (window.WebViewBridge) {
@@ -321,7 +344,7 @@
       // 对错误不进行处理。
     }
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    // 接收处理部分 end
+    // 处理回传结果部分 end
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   }, 500);
 })( window );

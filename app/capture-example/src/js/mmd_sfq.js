@@ -12,13 +12,22 @@ mmd.mmd_openOCR = function (mmdCallback) {
       return;
     }
     if (data.imageUrl) {
-      // var body = document.getElementsByTagName('body')[0];
-      // var img = document.createElement('img');
-      // img.style.height = '300px';
-      // img.setAttribute('src', data.imageUrl);
-      // body.appendChild(img);
-      // mmdCallback(, data.imageUrl);
       mmdCallback('000', data.imageUrl);
     }
   });
+}
+
+mmd.mmd_applyFinfish = function (result) {
+  // result = {code: '000', result: '申请成功'}
+  sfq.mmd.applyFinish(result);
+}
+
+mmd.mmd_activationFinfish = function (result) {
+  // result = {code: '000', result: '申请成功'}
+  sfq.mmd.activateFinish(result);
+}
+
+mmd.mmd_payFinfish = function (result) {
+  // result = {code: '000', result: '申请成功'}
+  sfq.mmd.payFinish(result);
 }
