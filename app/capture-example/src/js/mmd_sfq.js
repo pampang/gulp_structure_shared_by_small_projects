@@ -9,12 +9,16 @@ mmd.mmd_openOCR = function (mmdCallback) {
     if (error) {
       console.log(error);
       // 错误处理...
-      mmdCallback('001', error);
+      mmdCallback('001', error.message);
       return;
-    }
-    if (data.imageUrl) {
+    } else if (data.imageUrl) {
       mmdCallback('000', data.imageUrl);
+    } else {
+      // 如果erro和data都是null，则是用户取消了。
+      alert('用户取消!');
+      mmdCallback('002', '用户取消');
     }
+
   });
 }
 
