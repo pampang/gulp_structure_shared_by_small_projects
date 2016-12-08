@@ -23,7 +23,7 @@ mmd.mmd_openOCR = function (mmdCallback) {
         }
       });
     }
-  }, 500);
+  }, 100);
 }
 
 mmd.mmd_applyFinish = function (result) {
@@ -39,7 +39,7 @@ mmd.mmd_applyFinish = function (result) {
       }
       alert('apply');
     }
-  }, 500);
+  }, 100);
 }
 
 mmd.mmd_activationFinish = function (result) {
@@ -51,7 +51,7 @@ mmd.mmd_activationFinish = function (result) {
       sfq.mmd.activateFinish(result);
       alert('activate');
     }
-  }, 500);
+  }, 100);
 }
 
 mmd.mmd_payFinish = function (result) {
@@ -63,7 +63,7 @@ mmd.mmd_payFinish = function (result) {
       sfq.mmd.payFinish(result);
       alert('pay');
     }
-  }, 500);
+  }, 100);
 }
 
 mmd.mmd_useCreditAfterActivation = function () {
