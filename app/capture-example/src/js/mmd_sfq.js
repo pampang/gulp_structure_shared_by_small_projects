@@ -66,6 +66,12 @@ mmd.mmd_payFinish = function (result) {
   }, 100);
 }
 
-mmd.mmd_useCreditAfterActivation = function () {
-
+mmd.mmd_closeWindow = function () {
+  var timer = setInterval(function() {
+    if (window.WebViewBridge) {
+      clearInterval(timer);
+      alert('close window');
+      sfq.webview.close();
+    }
+  }, 100);
 }
