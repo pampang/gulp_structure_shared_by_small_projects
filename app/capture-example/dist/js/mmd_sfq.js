@@ -1,14 +1,15 @@
 if (!window.mmd) {
   window.mmd = {};
 }
-alert(2);
+alert(3);
 
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
-  if (mmd.mmd_openOCR.lock + 3000 < (+(new Date()))) {
+  var now = +(new Date());
+  if (mmd.mmd_openOCR.lock + 3000 < now) {
     return;
   }
-  mmd.mmd_openOCR.lock = +(new Date());
+  mmd.mmd_openOCR.lock = now;
   var timer = setInterval(function() {
     if (window.WebViewBridge) {
       clearInterval(timer);
