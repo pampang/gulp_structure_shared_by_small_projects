@@ -171,6 +171,7 @@
     /* 么么贷 */
     mmd: {
       applyFinish: function (result) {
+        alert('apply');
         var currentSchema = 'mmd:apply:finish';
         MessageDispatcher(currentSchema, result);
       },

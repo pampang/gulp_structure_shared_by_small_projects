@@ -23,22 +23,32 @@ mmd.mmd_openOCR = function (mmdCallback) {
 }
 
 mmd.mmd_applyFinish = function (result) {
-  // alert(1);
-  alert(window.WebViewBridge);
+  alert('apply', window.WebViewBridge);
   // result = {code: '000', result: '申请成功'}
-  sfq.mmd.applyFinish(result);
+  try {
+    sfq.mmd.applyFinish(result);
+  } catch (e) {
+    alert(e.message);
+  }
+  alert('apply');
 }
 
 mmd.mmd_activationFinish = function (result) {
   // alert(1);
-  alert(window.WebViewBridge);
+  alert('activate', window.WebViewBridge);
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.activateFinish(result);
+  alert('activate');
 }
 
 mmd.mmd_payFinish = function (result) {
   // alert(1);
-  alert(window.WebViewBridge);
+  alert('pay', window.WebViewBridge);
   // result = {code: '000', result: '申请成功'}
   sfq.mmd.payFinish(result);
+  alert('pay');
+}
+
+mmd.mmd_useCreditAfterActivation = function () {
+
 }
