@@ -4,7 +4,7 @@ if (!window.mmd) {
 
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
-  if (mmd.mmd_openOCR.lock < (+(new Date() + 3000))) {
+  if (mmd.mmd_openOCR.lock + 3000 < (+(new Date()))) {
     return;
   }
   mmd.mmd_openOCR.lock = +(new Date());
