@@ -1,6 +1,7 @@
 if (!window.mmd) {
   window.mmd = {};
 }
+alert(2);
 
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
