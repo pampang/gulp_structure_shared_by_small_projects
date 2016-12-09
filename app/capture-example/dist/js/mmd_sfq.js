@@ -1,12 +1,12 @@
 if (!window.mmd) {
   window.mmd = {};
 }
-alert(3);
+alert(5);
 
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
   var now = +(new Date());
-  if (mmd.mmd_openOCR.lock + 3000 < now) {
+  if (mmd.mmd_openOCR.lock + 3000 > now) {
     return;
   }
   mmd.mmd_openOCR.lock = now;
