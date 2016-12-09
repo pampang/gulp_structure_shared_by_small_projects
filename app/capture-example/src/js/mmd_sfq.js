@@ -1,22 +1,6 @@
 if (!window.mmd) {
   window.mmd = {};
 }
-alert(6);
-
-function startTillOK(callback) {
-  var timer = null;
-  if (window.WebViewBridge) {
-    callback();
-  } else {
-    setInterval(function() {
-      if (window.WebViewBridge) {
-        clearInterval(timer);
-        // 一次只能启动一个，如何做到？
-        callback();
-      }
-    }, 100);
-  }
-}
 
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
