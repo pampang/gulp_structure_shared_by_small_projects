@@ -21,7 +21,6 @@ mmd.mmd_openOCR = function (mmdCallback) {
         mmdCallback('000', data.imageUrl);
       } else {
         // 如果erro和data都是null，则是用户取消了。
-        alert('用户取消!');
         mmdCallback('001', '用户取消');
       }
     });
@@ -30,38 +29,27 @@ mmd.mmd_openOCR = function (mmdCallback) {
 
 mmd.mmd_applyFinish = function (result) {
   sfq.ready(function () {
-    alert('apply', window.WebViewBridge);
     // result = {code: '000', result: '申请成功'}
-    try {
-      sfq.mmd.applyFinish(result);
-    } catch (e) {
-      alert(e.message);
-    }
-    alert('apply');
+    sfq.mmd.applyFinish(result);
   })
 }
 
 mmd.mmd_activationFinish = function (result) {
   sfq.ready(function() {
-    alert('activate', window.WebViewBridge);
     // result = {code: '000', result: '申请成功'}
     sfq.mmd.activateFinish(result);
-    alert('activate');
   })
 }
 
 mmd.mmd_payFinish = function (result) {
   sfq.ready(function() {
-    alert('pay', window.WebViewBridge);
     // result = {code: '000', result: '申请成功'}
     sfq.mmd.payFinish(result);
-    alert('pay');
   })
 }
 
 mmd.mmd_closeWindow = function () {
   sfq.ready(function() {
-    alert('close window');
     sfq.webview.close();
   })
 }
