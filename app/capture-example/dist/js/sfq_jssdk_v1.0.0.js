@@ -20,7 +20,19 @@
   // 对外暴露的方法，供外部调用 start
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   sfq.prototype = {
-    // ready: function() {},
+    ready: function(callback) {
+      var timer = null;
+      if (window.WebViewBridge) {
+        callback();
+      } else {
+        setInterval(function() {
+          if (window.WebViewBridge) {
+            clearInterval(timer);
+            callback();
+          }
+        }, 100);
+      }
+    },
 
     /* 分享 */
     share: {
