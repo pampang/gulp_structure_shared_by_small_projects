@@ -2,14 +2,13 @@ if (!window.mmd) {
   window.mmd = {};
 }
 
+var body = document.getElementsByTagName('body')[0];
+var div = document.createElement('div');
+div.innerHTML = '测试版本v1';
+body.appendChild(div);
+
 // 打开ocr
 mmd.mmd_openOCR = function (mmdCallback) {
-  var now = +(new Date());
-  if (mmd.mmd_openOCR.lock + 3000 > now) {
-    return;
-  }
-  mmd.mmd_openOCR.lock = now;
-
   sfq.ready(function() {
     sfq.capture.selectOCR(null, function ocrCallback(error, data) {
       if (error) {
