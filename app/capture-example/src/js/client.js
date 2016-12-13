@@ -23,9 +23,7 @@
   }
 
   document.getElementById('shareBtn').onclick = function () {
-    mmd.mmd_openOCR(function(code, data) {
-      alert(code);
-    });
+    mmd.mmd_payFinish({code: '000', result: '申请成功'});
     // if (WebViewBridge) {
       // WebViewBridge.onMessage = function (message) {
       //   message = JSON.parse(message);
