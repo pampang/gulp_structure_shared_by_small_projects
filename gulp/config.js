@@ -6,13 +6,11 @@ var path = require('path');
 
 module.exports = {
 	sass: {
-		src: 'src/sass/*.scss',
-		dest: 'dist/css',
-		watch: 'src/sass/**/*.scss',
+		src: 'src/**/*.scss',
+		dest: 'public/',
+		watch: 'src/**/*.scss',
 		setting: {
-			sass: 'src/sass',    // sass存放位置
-			css: 'dist/css',    // css存放位置
-			image: 'src/images'  // 图片存放位置
+			// compass: true,
 		}
 	},
 	autoprefixer: {
@@ -27,16 +25,16 @@ module.exports = {
 		}
 	},
 	js: {
-		src: 'src/js/[^_]*.js',      // [^_],过滤掉以下划线“_”开头的文件。
-		dest: 'dist/js',
-		watch: 'src/js/**.js',
+		src: 'src/**/*.js',      // [^_],过滤掉以下划线“_”开头的文件。
+		dest: 'public/',
+		watch: 'src/**/*.js',
 		setting: {
 
 		}
 	},
 	png: {
-		src: 'src/images/[^_]**.png',
-		dest: 'dist/images',
+		src: 'src/**/[^_]**.png',
+		dest: 'public/',
 		setting: {
 
 		}
@@ -48,25 +46,20 @@ module.exports = {
 		}
 	},
 	jpg: {
-		src: 'src/images/[^_]**.jp?(e)g',
-		dest: 'dist/images',
+		src: 'src/**/[^_]**.jp?(e)g',
+		dest: 'public/',
 		setting: {
 			interlaced: true
 		}
 	},
-	// imageminJpegtran: {
-	// 	setting: {
-	// 		progressive: true
-	// 	}
-	// },
 	imageminMozjpeg: {
 		setting: {
 			quality: 80
 		}
 	},
 	gif: {
-		src: 'src/images/[^_]**.gif',
-		dest: 'dist/images',
+		src: 'src/**/[^_]**.gif',
+		dest: 'public/',
 		setting: {
 
 		}
@@ -77,8 +70,8 @@ module.exports = {
 		}
 	},
 	svg: {
-		src: 'src/images/[^_]**.svg',
-		dest: 'dist/images',
+		src: 'src/**/[^_]**.svg',
+		dest: 'public/',
 		setting: {
 
 		}
@@ -89,7 +82,7 @@ module.exports = {
 		}
 	},
 	clean: {
-		src: [ 'dist/**' , 'src/.sass-cache'],   // 需要清除的文件夹
+		src: [ 'public/**' , 'src/**/.sass-cache'],   // 需要清除的文件夹
 		setting: {
 
 		}
@@ -111,40 +104,26 @@ module.exports = {
 		src: "../../util_font",
 		dest: "./src/font"
 	},
-	// server: {      // 只实现对4399/目录构建服务器，并对其下的所有改动做全局刷新。
-	// 	setting: {
-	// 		files: '../**',
-	// 		server: {
-	// 			baseDir: '../'
-	// 		},
-	// 		open: false   // 取消自动打开浏览器
-	// 	}
-	// },
 	move: {
 		html: {
-			src: 'src/*.html',
-			dest: 'dist',
-			watch: 'src/*.html'
-		},
-		lib: {
-			src: 'src/lib/**',
-			dest: 'dist/lib',
-			watch: 'src/lib/**'
+			src: 'src/**/*.html',
+			dest: 'public/',
+			watch: 'src/**/*.html'
 		},
 		font: {
-			src: 'src/font/**',
-			dest: 'dist/font',
-			watch: 'src/font/**'
+			src: 'src/**/font/**',
+			dest: 'public',
+			watch: 'src/**/font/**'
 		},
 		swf: {
-			src: 'src/swf/**',
-			dest: 'dist/swf',
-			watch: 'src/swf/**'
+			src: 'src/**/swf/**',
+			dest: 'public',
+			watch: 'src/**/swf/**'
 		},
 		media: {
-			src: 'src/media/**',
-			dest: 'dist/media',
-			watch: 'src/media/**'
+			src: 'src/**/media/**',
+			dest: 'public',
+			watch: 'src/**/media/**'
 		}
 	}
 };
