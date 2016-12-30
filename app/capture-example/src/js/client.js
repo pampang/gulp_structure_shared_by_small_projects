@@ -53,14 +53,14 @@
       //   }
       // });
 
-      sfq.share.weixin({
-        content: "我在【奢分期】发现只需几百首付就可以买到国外一线奢侈品正品，再不来就被抢光啦！",
-        imageUrl:"http://mall.image.shefenqi.com/product/iupd7fip0mb01400.jpg@0o_1l_640w_90q.jpg",
-        targetUrl: decodeURIComponent(pairs.targetUrl),
-        title: "芭法娜 项饰/吊坠仅需¥313就可以带回家，赶紧看！",
-      }, function shareCallback(error, data) {
-        console.log(1);
-      });
+      // sfq.share.weixin({
+      //   content: "我在【奢分期】发现只需几百首付就可以买到国外一线奢侈品正品，再不来就被抢光啦！",
+      //   imageUrl:"http://mall.image.shefenqi.com/product/iupd7fip0mb01400.jpg@0o_1l_640w_90q.jpg",
+      //   targetUrl: decodeURIComponent(pairs.targetUrl),
+      //   title: "芭法娜 项饰/吊坠仅需¥313就可以带回家，赶紧看！",
+      // }, function shareCallback(error, data) {
+      //   console.log(1);
+      // });
 
       console.log(123);
       // sfq.route.push({
@@ -72,15 +72,24 @@
       //   alert(error);
       //   alert(data);
       // });
-      // sfq.pushMallItem({
-      //   productId: 41088,
-      // })
+      // sfq.route.push({
+      //   target: 'MallItem',
+      //   params: {
+      //     topicId: 41088,
+      //   },
+      // }, function (error, data) {
+      //   alert(error);
+      //   alert(data);
+      // });
 
       // sfq.webview.close({
       //   hello: 123,
       // });
-      // sfq.webview.refresh();
+
+      sfq.webview.refresh();
+
       // sfq.device.network(null, function(error, data) {
+      //   console.log(data);
       //   if (data.connection) {
       //     var body = document.getElementsByTagName('body')[0];
       //     var p = document.createElement('p');

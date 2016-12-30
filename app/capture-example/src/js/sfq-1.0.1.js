@@ -14,7 +14,6 @@
       data: data,
     };
     var finalPostMessage = (window.WebViewBridge && window.WebViewBridge.send) || window.postMessage;
-    console.log('finalPostMessage', finalPostMessage);
     finalPostMessage(JSON.stringify(dispatchMessage));
   };
 
@@ -27,10 +26,10 @@
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   sfq.prototype = {
     ready: function(callback) {
-      alert(1);
-      console.log(window.WebViewBridge);
-      console.log(window.postMessage);
-      console.log('isReady', isReady());
+      // alert(1);
+      // console.log('WebViewBridge**', window.WebViewBridge);
+      // console.log('postMessage**', window.postMessage);
+      // console.log('isReady**', isReady());
       var timer = null;
       if (isReady()) {
         callback();
@@ -93,12 +92,12 @@
       /* webview */
       close: function (option) {
         var currentSchema = 'webview:current:close';
-        MessageDispatcher(currentSchema, option);
+        MessageDispatcher(currentSchema, option || {});
       },
 
       refresh: function (option) {
         var currentSchema = 'webview:current:refresh';
-        MessageDispatcher(currentSchema, option);
+        MessageDispatcher(currentSchema, option || {});
       },
     },
 
@@ -107,7 +106,7 @@
       network: function (option, callback) {
         var currentSchema = 'device:network:get';
         CALLBACK_MAP[currentSchema] = callback;
-        MessageDispatcher(currentSchema, option);
+        MessageDispatcher(currentSchema, option || {});
       },
     },
 
@@ -134,10 +133,8 @@
               currentSchema = 'route:mallItem:push';
               break;
             case 'malltopic':
-              console.log(123123);
               // 字段校验
               if (!params || !params.topicId) {
-                console.log(123123);
                 callback(new Error('请填写专题id'), null);
                 return;
               }
@@ -348,6 +345,8 @@
              * @param {string} schema 执行代码
              * @param {object} data 传送的数据
              */
+          // console.log('onMessage');
+          // console.log(rawMessage);
           var message = JSON.parse(rawMessage);
           var schema = message.schema.split(':');
           var handler = getHandler(message);
@@ -371,7 +370,10 @@
         window.WebViewBridge.onMessage = finalOnMessage;
       }
 
-      window.onMessage = finalOnMessage;
+      document.addEventListener('message', function(event) {
+        // console.log(event);
+        finalOnMessage(event.data);
+      });
     } catch (error) {
       alert(error);
       // 对错误不进行处理。
