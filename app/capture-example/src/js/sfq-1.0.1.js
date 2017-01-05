@@ -13,8 +13,13 @@
       schema: currentSchema,
       data: data,
     };
-    var finalPostMessage = (window.WebViewBridge && window.WebViewBridge.send) || window.postMessage;
-    finalPostMessage(JSON.stringify(dispatchMessage));
+    var dispatchMessageString = JSON.stringify(dispatchMessage);
+    if (window.WebViewBridge && window.WebViewBridge.send) {
+      // android下window.WebViewBridge.send无法赋值，会导致报错。
+      window.WebViewBridge.send(dispatchMessageString);
+    } else if (window.postMessage) {
+      window.postMessage(dispatchMessageString);
+    }
   };
 
   function isReady() {
@@ -26,10 +31,6 @@
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   sfq.prototype = {
     ready: function(callback) {
-      // alert(1);
-      // console.log('WebViewBridge**', window.WebViewBridge);
-      // console.log('postMessage**', window.postMessage);
-      // console.log('isReady**', isReady());
       var timer = null;
       if (isReady()) {
         callback();
@@ -345,8 +346,6 @@
              * @param {string} schema 执行代码
              * @param {object} data 传送的数据
              */
-          // console.log('onMessage');
-          // console.log(rawMessage);
           var message = JSON.parse(rawMessage);
           var schema = message.schema.split(':');
           var handler = getHandler(message);
@@ -371,7 +370,6 @@
       }
 
       document.addEventListener('message', function(event) {
-        // console.log(event);
         finalOnMessage(event.data);
       });
     } catch (error) {

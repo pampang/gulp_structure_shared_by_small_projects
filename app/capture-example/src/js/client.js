@@ -37,21 +37,24 @@
     //     body.appendChild(img);
     //   }
     // });
+    console.log('sfq', sfq);
+    sfq.capture.selectOCR();
+    console.log(123);
     sfq.ready(function() {
-      // sfq.capture.selectOCR(null, function shareCallback(error, data) {
-      //   if (error) {
-      //     console.log(error);
-      //     // 错误处理...
-      //     return;
-      //   }
-      //   if (data.imageUrl) {
-      //     var body = document.getElementsByTagName('body')[0];
-      //     var img = document.createElement('img');
-      //     img.style.height = '300px';
-      //     img.setAttribute('src', data.imageUrl);
-      //     body.appendChild(img);
-      //   }
-      // });
+      sfq.capture.selectOCR(null, function shareCallback(error, data) {
+        if (error) {
+          console.log(error);
+          // 错误处理...
+          return;
+        }
+        if (data.imageUrl) {
+          var body = document.getElementsByTagName('body')[0];
+          var img = document.createElement('img');
+          img.style.height = '300px';
+          img.setAttribute('src', data.imageUrl);
+          body.appendChild(img);
+        }
+      });
 
       // sfq.share.weixin({
       //   content: "我在【奢分期】发现只需几百首付就可以买到国外一线奢侈品正品，再不来就被抢光啦！",
@@ -86,7 +89,7 @@
       //   hello: 123,
       // });
 
-      sfq.webview.refresh();
+      // sfq.webview.refresh();
 
       // sfq.device.network(null, function(error, data) {
       //   console.log(data);
